@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  to_id: 
+  from_id: 
+  start: 2019-03-27 21:08:55
+  duration: 1
+
+two:
+  to_id: 
+  from_id: 
+  start: 2019-03-27 21:08:55
+  duration: 1
