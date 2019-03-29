@@ -1,0 +1,17 @@
+<h1>All Flights</h1>
+<%= form_tag(flights_path, method: "get", :enforce_utf8 => false) do %>
+  <%= label_tag 'to' %>
+  <%= select_tag 'to', options_from_collection_for_select(Airport.all, :code, :code) %>
+
+  <%= label_tag 'from' %>
+  <%= select_tag 'from', options_from_collection_for_select(Airport.all, :code, :code) %>
+
+  <%= label_tag 'passenger_count' %>
+  <%= select_tag 'passenger_count', options_for_select([["1",1],["2",2],["3",3],["4",4]]) %>
+
+  <%= label_tag 'date' %>
+  <%= select_tag 'date', options_from_collection_for_select(Flight.all, :date_value_formatted, :date_form_formatted) %>
+
+  <!-- Add name: nil below to remove the commit=Submit from the parameters -->
+  <%= submit_tag "Submit", name: nil %>
+<% end %>

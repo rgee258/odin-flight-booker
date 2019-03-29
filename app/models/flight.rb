@@ -7,4 +7,12 @@ class Flight < ApplicationRecord
   validates :date, presence: true
   validates :duration, presence: true
 
+  def date_form_formatted
+    date.strftime("%m/%d/%Y")
+  end
+
+  def date_value_formatted
+    date.strftime("%m%d%Y")
+  end
+
 end
