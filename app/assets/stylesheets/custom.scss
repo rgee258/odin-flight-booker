@@ -1,0 +1,56 @@
+* {
+  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid black;
+}
+
+td {
+  width: 20%;
+}
+
+tr {
+  margin: 0 10px;
+}
+
+.new_booking input[type="submit"] {
+  margin-top: 15px;
+  font-size: 30px;
+}
+
+.new_booking input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.new_booking_flight_info {
+  border: 1px solid black;
+  width: 20%;
+  margin: 0 auto;
+}
+
+.new_booking_label {
+  font-weight: bold;
+}
+
+.new_booking input[type="text"] {
+  margin: 10px 0;
+}
+
+.booking-information {
+  h3 {
+    margin: -5px 0;
+  }
+  p {
+    margin: 10px 0;
+  }
+  .flight-info {
+    border: 1px solid black;
+    width: 20%;
+    margin: 0 auto;
+    padding-top: 10px;
+    margin-bottom: 20px;
+  }
+}

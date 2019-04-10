@@ -1,0 +1,21 @@
+<div class="booking-information">
+<h1>Booking Information</h1>
+<div class="flight-info">
+<h3>Flight ID</h3>
+  <p><%= @booking.flight.id %></p>
+<h3>From Airport</h3>
+  <p><%= @booking.flight.from_airport.code %></p>
+<h3>To Airport</h3>
+  <p><%= @booking.flight.to_airport.code %></p>
+<h3>Date</h3>
+  <p><%= @booking.flight.date_display_formatted %></p>
+<h3>Time</h3>
+  <p><%= @booking.flight.time_display_formatted %></p>
+</div>
+<div class="passenger-info">
+  <h2>Passenger Listing</h2>
+    <% @booking.passengers.each do |passenger| %>
+      <p><%= passenger.name %> | <%= passenger.email %></p>
+    <% end %>
+</div>
+</div>

@@ -1,17 +1,47 @@
-<h1>All Flights</h1>
+<h1>Flight Booker</h1>
 <%= form_tag(flights_path, method: "get", :enforce_utf8 => false) do %>
   <%= label_tag 'to' %>
-  <%= select_tag 'to', options_from_collection_for_select(Airport.all, :code, :code) %>
+  <%= select_tag 'to', options_from_collection_for_select(Airport.all, :id, :code) %>
 
   <%= label_tag 'from' %>
-  <%= select_tag 'from', options_from_collection_for_select(Airport.all, :code, :code) %>
+  <%= select_tag 'from', options_from_collection_for_select(Airport.all, :id, :code) %>
 
   <%= label_tag 'passenger_count' %>
   <%= select_tag 'passenger_count', options_for_select([["1",1],["2",2],["3",3],["4",4]]) %>
 
   <%= label_tag 'date' %>
-  <%= select_tag 'date', options_from_collection_for_select(Flight.all, :date_value_formatted, :date_form_formatted) %>
+  <%= select_tag 'date', options_for_select(@flight_dates) %>
 
   <!-- Add name: nil below to remove the commit=Submit from the parameters -->
-  <%= submit_tag "Submit", name: nil %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<% unless @flights.nil?%>
+  <% unless @flights.empty? %>
+    <h3>Available Flights</h3>
+    <table>
+      <tr class="flights-header">
+        <th>To</th>
+        <th>From</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Confirmation</th>
+      </tr>
+      <% @flights.each do |flight| %>
+        <%= form_tag(new_booking_path, method: "get", :enforce_utf8 => false) do %>
+          <tr class="flight-data">
+            <td><%= flight.to_airport.code %></td>
+            <td><%= flight.from_airport.code %></td>
+            <td><%= flight.date_display_formatted %></td>
+            <td><%= flight.time_display_formatted %></td>
+            <%= hidden_field_tag 'flight_id', flight.id %>
+            <%= hidden_field_tag 'passenger_count', params[:passenger_count] %>
+            <td><%= submit_tag 'Confirm' %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      </table>
+  <% else %>
+    <h3>No Flights Found</h3>
+  <% end %>
 <% end %>
