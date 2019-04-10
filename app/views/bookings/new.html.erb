@@ -1,0 +1,26 @@
+<h1>Booking Confirmation</h1>
+<%= form_for @booking do |f| %>
+  <div class="new_booking_flight_info">
+    <p class="new_booking_label">Date</p>
+    <p><%= @flight.date_display_formatted %></p>
+    <p class="new_booking_label">Time</p>
+    <p><%= @flight.time_display_formatted %></p>
+    <p class="new_booking_label">From</p>
+    <p><%= @flight.from_airport.code %></p>
+    <p class="new_booking_label">To</p>
+    <p><%= @flight.to_airport.code %></p>
+    <p class="new_booking_label">Flight ID</p>
+    <p><%= @flight.id %></p>
+  </div>
+  <%= f.hidden_field :flight_id, value: @flight.id %>
+  <% params[:passenger_count].to_i.times do |i| %>
+    <h3>Passenger <%= i + 1 %> Information</h3>
+    <%= f.fields_for :passengers do |passenger_form| %>
+      <%= passenger_form.label :name %><br>
+      <%= passenger_form.text_field :name %><br>
+      <%= passenger_form.label :email %><br>
+      <%= passenger_form.text_field :email %><br>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
