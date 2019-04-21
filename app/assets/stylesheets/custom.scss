@@ -1,5 +1,26 @@
 * {
+  margin: 0;
   text-align: center;
+  font-family: Lucida Grande;
+}
+
+h1 {
+  font-family: Verdana;
+  text-transform: uppercase;
+  background-color: aliceblue;
+  padding: 20px 0;
+}
+
+h3 {
+  margin: 20px;
+}
+
+.flight-selection {
+  padding: 15px 0;
+  background-color: whitesmoke;
+  select {
+    margin-right: 5px;
+  }
 }
 
 table {
@@ -28,7 +49,10 @@ tr {
 .new_booking_flight_info {
   border: 1px solid black;
   width: 20%;
-  margin: 0 auto;
+  margin: 30px auto;
+  p {
+    margin: 15px 0;
+  }
 }
 
 .new_booking_label {
@@ -39,17 +63,21 @@ tr {
   margin: 10px 0;
 }
 
+.new_booking input[type="submit"] {
+  margin-bottom: 30px;
+}
+
 .booking-information {
   h3 {
-    margin: -5px 0;
+    margin: 5px 0 5px 0;
   }
   p {
-    margin: 10px 0;
+    margin: 10px 0 15px 0;
   }
   .flight-info {
     border: 1px solid black;
     width: 20%;
-    margin: 0 auto;
+    margin: 30px auto;
     padding-top: 10px;
     margin-bottom: 20px;
   }

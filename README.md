@@ -1,4 +1,4 @@
-## Flight Booker
+# Flight Booker
 
 This repo is used to host a simulated one-way flight booker using Rails.
 
@@ -10,12 +10,13 @@ This application contains more advanced form concepts in Rails, such as nested f
 and usage of helpers such as select_tag. It was created for the purpose of learning
 about them and putting them to practical use.
 
-Currently, this application is barebones visually, and may be revisited in the future.
+The latest update to this application added a mailer, which can be used and viewed
+when booking in a development environment.
 
 This project is done following The Odin Project, which this project in particular can
 be found [here](https://www.theodinproject.com/courses/ruby-on-rails/lessons/building-advanced-forms).
 
-# Usage Instructions
+## Usage Instructions
 
 Download this repo to the location of your choosing and then start up a rails server
 using your localhost.
@@ -31,3 +32,11 @@ If your booking is successful, you will be sent to the information page containi
 your booking details and have successfully booked a flight. If not you will be 
 redirected to the root page again. Try your flight choice again and ensure all
 passenger info is correctly entered.
+
+This application contains mailers used for sending out "Thank You" emails whenever
+a booking is completed to the supplied emails for its passengers. This is currently
+performed only in the development environment through the usage of the 
+[Letter Opener gem](https://github.com/ryanb/letter_opener). When a booking is
+submitted in development, Letter Opener will open up a browser view of the expected
+emails. Should this application be used in an actual production setting, the production
+config will need to be accordingly changed to support the sending of emails.
