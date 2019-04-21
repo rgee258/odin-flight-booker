@@ -1,5 +1,5 @@
 <h1>Flight Booker</h1>
-<%= form_tag(flights_path, method: "get", :enforce_utf8 => false) do %>
+<%= form_tag(flights_path, method: "get", class: "flight-selection", :enforce_utf8 => false) do %>
   <%= label_tag 'to' %>
   <%= select_tag 'to', options_from_collection_for_select(Airport.all, :id, :code) %>
 

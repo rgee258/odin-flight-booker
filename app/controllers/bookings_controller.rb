@@ -8,6 +8,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.create(booking_params)
     if @booking.save
+      @booking.passengers.each do |p|
+        PassengerMailer.thank_you_email(p).deliver_now!
+      end
       redirect_to @booking
     else
       flash[:danger] = "An error occurred during booking confirmation, please try again."
